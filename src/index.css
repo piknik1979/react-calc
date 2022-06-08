@@ -1,7 +1,6 @@
 *, *::before, *::after {
   box-sizing: border-box;
 }
-
 body {
   margin: 0;
   background: linear-gradient(to right, rgb(105, 105, 154), rgb(83, 86, 83));
