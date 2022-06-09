@@ -1,16 +1,28 @@
+import { useReducer } from "react";
 import "./index.css";
 
+// actions will be taken when pressing the buttons
+// const ACTIONS = {
+
+// }
+
+//reducer function will reduce and calculate 
+function reducer(state, action) {
+
+}
+
 function App() {
+  // setting states - currentOperand, previousOperand, operation
+  //using useReducer method from React
+  const [{currentOperand, previousOperand, operation}, dispatch] = useReducer(reducer, {})
   return (
     <div className="calculator-grid">
-      {/* main calculator grid */}
       <div className="output">
-        {" "}
-        {/* // main output screen - whole black section and includes prev and curre op.   */}
-        <div className="previous-operand">123.124</div>{" "}
-        {/* small numbers - previous calculation*/}
-        <div className="current-operand">123.124</div>{" "}
-        {/* large numbers - previous calculation*/}
+    {/* instead of default numbers in a previous-operand we put there state: {previousOperand} and {operation} which will be the actual operation ?? */}
+        <div className="previous-operand">{previousOperand} {operation} </div>{" "}
+           {/* instead of default numbers in a current-operand we put there state: {current-Operand} */}
+        <div className="current-operand">{currentOperand}</div>{" "}
+
       </div>
       <button className="span-two">AC</button>
       <button className="DEL">DEL</button>
