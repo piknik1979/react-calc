@@ -1,5 +1,6 @@
 import { useReducer } from "react";
 import DigitButton from "./DigitButton";
+import OperationButton from "./OperationButton";
 import "./index.css";
 
 // actions will be taken when pressing the buttons
@@ -24,8 +25,9 @@ function reducer(state, { type, payload }) {
       }
       if (payload.digit === "0" && state.currentOperand === "0") {
         return state;
-      }
-      if (payload.digit === "." && state.currentOperand.includes(".")) {
+      } //  if the outpust is zero calculator won't take any action
+      if (payload.digit === "." && state.currentOperand.includes(".")) //  if there will be another '.' pressed it wont add it to the state
+      {
         return state;
       }
 
@@ -58,19 +60,19 @@ function App() {
       <button>DEL</button>
       {/* Setting Up Digits - replacing the original buttons with DigitButtons and '.' period button as well  */}
       {/* Setting Up Operation Buttons, as well (/, +. -, *. */}
-      <DigitButton digit="/" dispatch={dispatch} />
+      <DigitButton operation="/" dispatch={dispatch} />
       <DigitButton digit="1" dispatch={dispatch} />
       <DigitButton digit="2" dispatch={dispatch} />
       <DigitButton digit="3" dispatch={dispatch} />
-      <button>*</button>
+      <DigitButton operation="*" dispatch={dispatch} />
       <DigitButton digit="4" dispatch={dispatch} />
       <DigitButton digit="5" dispatch={dispatch} />
       <DigitButton digit="6" dispatch={dispatch} />
-      <button>+</button>
+      <DigitButton operation="+" dispatch={dispatch} />
       <DigitButton digit="7" dispatch={dispatch} />
       <DigitButton digit="8" dispatch={dispatch} />
       <DigitButton digit="9" dispatch={dispatch} />
-      <button>-</button>
+      <DigitButton operation="-" dispatch={dispatch} />
       <DigitButton digit="." dispatch={dispatch} />
       <DigitButton digit="0" dispatch={dispatch} />
       <button className="span-two">=</button>
