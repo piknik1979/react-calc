@@ -2,27 +2,43 @@ import { useReducer } from "react";
 import "./index.css";
 
 // actions will be taken when pressing the buttons
-// const ACTIONS = {
-
-// }
-
-//reducer function will reduce and calculate 
-function reducer(state, action) {
-
+const ACTIONS = {
+ADD_DIGIT: 'add-digit', // adding a single digit to the Grid
+CHOOSE_OPERATION: 'choose-operation', // choosing a operation like division etc
+CLEAR: 'clear', //clear digits
+DELETE_DIGIT: 'delete-digit',  //removeing the digit
+EVALUATE: 'evaluate' 
 }
+
+//reducer function will reduce and calculate
+function reducer(state, {type, payload}) {
+  switch(type) {
+    case ACTIONS.ADD_DIGIT_DIGIT:          // example action ADD_DIGIT
+      return {
+        ...state,                // action will return a new state object - that is how reducer works
+        currentOperand: `${currentOperand}${payload.digit}`
+      }
+  }
+} // reducer function have a state and - type parameter (type of action), also have payload parameter which will be passing all different Actions 
 
 function App() {
   // setting states - currentOperand, previousOperand, operation
   //using useReducer method from React
-  const [{currentOperand, previousOperand, operation}, dispatch] = useReducer(reducer, {})
+  const [{ currentOperand, previousOperand, operation }, dispatch] = useReducer(
+    reducer,
+    {}
+  );
+
+  dispatch({type: ACTIONS.ADD_DIGIT, payload: {digit: 1}}) //action passed to the Dispatch method - and digit passed (1)
   return (
     <div className="calculator-grid">
       <div className="output">
-    {/* instead of default numbers in a previous-operand we put there state: {previousOperand} and {operation} which will be the actual operation ?? */}
-        <div className="previous-operand">{previousOperand} {operation} </div>{" "}
-           {/* instead of default numbers in a current-operand we put there state: {current-Operand} */}
+        {/* instead of default numbers in a previous-operand we put there state: {previousOperand} and {operation} which will be the actual operation ?? */}
+        <div className="previous-operand">
+          {previousOperand} {operation}{" "}
+        </div>{" "}
+        {/* instead of default numbers in a current-operand we put there state: {current-Operand} */}
         <div className="current-operand">{currentOperand}</div>{" "}
-
       </div>
       <button className="span-two">AC</button>
       <button className="DEL">DEL</button>
@@ -47,6 +63,3 @@ function App() {
 }
 
 export default App;
-
-// // minuta 7.43
-// https://www.youtube.com/watch?v=DgRrrOt0Vr8&ab_channel=WebDevSimplified
