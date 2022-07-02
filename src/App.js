@@ -61,6 +61,25 @@ function reducer(state, { type, payload }) {
       };
     case ACTIONS.CLEAR:
       return {};
+    case ACTIONS.DELETE_DIGIT:
+      if (state.overwrite) {
+        return {
+          ...state,
+          overwrite: false,
+          currentOperand: null,
+        };
+      }
+      if (state.currentOperand == null) return state;
+      if (state.currentOperand.length === 1) {
+        return {
+          ...state,
+          currentOperand: null,
+        };
+      }
+      return {
+        ...state,
+        currentOperand: state.currentOperand.slice(0, -1),
+      };
     case ACTIONS.EVALUATE:
       // in case of we don't have any information about states, dont calculate(evaluate)
       if (
@@ -76,8 +95,7 @@ function reducer(state, { type, payload }) {
         previousOperand: null,
         operation: null,
         currentOperand: evaluate(state),
-      }
-
+      };
   }
 } // reducer function have a state and - type parameter (type of action), also have payload parameter which will be passing all different Actions
 
