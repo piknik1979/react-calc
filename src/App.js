@@ -125,6 +125,18 @@ function evaluate({ currentOperand, previousOperand, operation }) {
   return computation.toString();
 }
 
+// INTEGER_FORMATTER created for separating every thousand( like 100,000,000) we are gonna use ',' commma
+const INTEGER_FORMATTER = new Intl.NumberFormat("en-us", {
+  maximumFractionDigits: 0,
+});
+
+function formatOperand(operand) {
+  if (operand == null) return;
+  const [integer, decimal] = operand.split(".");
+  if (decimal == null) return INTEGER_FORMATTER.format(integer);
+  return `${INTEGER_FORMATTER.format(integer)}.${decimal}`;
+}
+
 function App() {
   // setting states - currentOperand, previousOperand, operation
   //using useReducer method from React
@@ -138,10 +150,10 @@ function App() {
       <div className="output">
         {/* instead of default numbers in a previous-operand we put there state: {previousOperand} and {operation} which will be the actual operation ?? */}
         <div className="previous-operand">
-          {previousOperand} {operation}{" "}
-        </div>{" "}
+          {formatOperand(previousOperand)} {operation}
+        </div>
         {/* instead of default numbers in a current-operand we put there state: {current-Operand} */}
-        <div className="current-operand">{currentOperand}</div>
+        <div className="current-operand">{formatOperand(currentOperand)}</div>
       </div>
 
       <button
