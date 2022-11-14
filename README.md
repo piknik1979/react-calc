@@ -2,9 +2,7 @@
 
 You can view live my React Calculator App on: https://heroku-react-calc.herokuapp.com/
 
-# Manual app starting:
-
-# Getting Started with Create React App
+# Getting Started with Create React App (Manual app starting)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
