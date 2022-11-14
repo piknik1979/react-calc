@@ -1,8 +1,8 @@
-# My React Calculator App can is live on:
+# React Calculator App
 
-My React Calculator App can is live on: https://heroku-react-calc.herokuapp.com/
+You can view live my React Calculator App on: https://heroku-react-calc.herokuapp.com/
 
-## Manual app starting:
+# Manual app starting:
 
 # Getting Started with Create React App
 
