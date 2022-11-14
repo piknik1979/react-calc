@@ -6,7 +6,7 @@ You can view live my React Calculator App on: https://heroku-react-calc.herokuap
 
 ## Manual starting
 
-Alternatively, the application can be started from the root directory:
+Alternatively, the application can be started from the root directory in the terminal:
 
 ### `npm start`
 
