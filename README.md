@@ -1,6 +1,11 @@
 # React Calculator App
 
-A small graphical application, made with the React library and written with JavaScript and Css
+This project was made with React Js library 
+by use of JavaScript, css and Html
+and deployed with Netlify
+you can view it live hear: 
+
+https://tomasz-react-calc-app.netlify.app/
 
 ## Manual starting
 
