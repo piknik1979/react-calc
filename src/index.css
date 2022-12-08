@@ -9,11 +9,13 @@ body {
 /* main calculator grid*/
 .calculator-grid {
   display: grid;
-  margin-top: 2rem;  
-  /*  getting the size from the top of the DOM - whic is body*/ 
+  margin-top: 20px;  
+  padding-left: 100px;
+  padding-right: 100px;
+  /*  getting the size from the top of the DOM - which is body*/ 
   justify-content: center;
-  grid-template-columns: repeat(4, 6rem);
-  grid-template-rows: minmax(6rem, auto) repeat(5, 6rem);
+  grid-template-columns: repeat(4, 5rem);
+  grid-template-rows: minmax(6rem, auto) repeat(5, 5rem);
 }
 
 /* calculator grid buttons*/
@@ -56,5 +58,5 @@ body {
 /* large numbers - previous calculation*/
 .output .current-operand {
   color: white;
-  font-size: 2.5rem;
+  font-size: 2rem;
 }
